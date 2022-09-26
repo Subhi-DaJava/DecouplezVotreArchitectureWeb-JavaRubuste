@@ -35,15 +35,21 @@
                         <td th:text="${issue.entered}"></td>
                         <td th:text="${issue.fixed}"></td>
                         <td th:text="${issue.details}"></td>
-                        <td th:text="${issue.subSystem.displayValue}"></td>
-                        <td th:text="${issue.level.displayValue}"></td>
+                        <td th:text="${issue.subSystem}"></td>
+                        <td th:text="${issue.level}"></td>
                         <td><a th:href="@{/maintenance/edit/{id}(id=${issue.id})}" class="btn btn-primary"><i class="fas fa-fighter-jet ml-2"></i></a></td>
                         <td><a th:href="@{/maintenance/delete/{id}(id=${issue.id})}" class="btn btn-primary"><i class="fas fa-fighter-jet ml-2"></i></a></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <p class="my-5"><a href="/new-issue" class="btn btn-primary"><i class="fas fa-fighter-jet ml-2"></i></a></p>
+            <p class="my-5"><a th:href="@{/new-issue}" class="btn btn-primary"><i class="fas fa-fighter-jet ml-2"></i></a></p>
+            <!--En tant que mécanicien en chef, je veux voir tous les problèmes de maintenance non résolus,
+            afin de pouvoir planifier les interventions des mécaniciens.-->
+            <!-- 1. un bouton à l’écran de maintenance.
+             2. une requête à la classe MaintenanceRepository.
+             3. un endpoint d’API à la classe MaintenanceController.-->
+            <a href="/maintenance/unfixed" class="btn btn-primary">Not Fixed</i></a></p>
         </div>
     </div>
 </div>

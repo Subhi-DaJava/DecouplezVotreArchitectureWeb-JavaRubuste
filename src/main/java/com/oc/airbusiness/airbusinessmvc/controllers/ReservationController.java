@@ -34,7 +34,7 @@ public class ReservationController {
             return "reservation/add-reservation";
         }
         reservationRepository.save(reservation);
-        model.addAttribute("reservation", reservationRepository.findAll());
+        model.addAttribute("reservations", reservationRepository.findAll());
         return "reservation/reservations";
     }
     @GetMapping("reservation/edit/{id}")

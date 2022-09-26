@@ -34,18 +34,18 @@
             <span th:if="${#fields.hasErrors('details')}" th:errors="*{details}" class="text-danger"></span>
           </div>
           <div class="form-group col-md-6">
-            <label for="subSystem" class="col-form-label">SubSystem</label>
+            <label  class="col-form-label">SubSystem</label>
             <select th:field="*{subSystem}">
-              <option th:each="subSystem : ${T(com.airbusiness.airbusinessmvc.entities.MaintenanceIssue.SubSystem).values()}"
+              <option th:each="subSystem : ${T(com.oc.airbusiness.airbusinessmvc.enums.SubSystem).values()}"
                       th:value="${subSystem}" th:text="${subSystem.displayValue}">
               </option>
             </select>
             <span th:if="${#fields.hasErrors('subSystem')}" th:errors="*{subSystem}" class="text-danger"></span>
           </div>
           <div class="form-group col-md-6">
-            <label for="level" class="col-form-label">Level</label>
+            <label  class="col-form-label">Level</label>
             <select th:field="*{level}">
-              <option th:each="levelOpt : ${T(com.airbusiness.airbusinessmvc.entities.MaintenanceIssue.Level).values()}"
+              <option th:each="levelOpt : ${T(com.oc.airbusiness.airbusinessmvc.enums.Level).values()}"
                       th:value="${levelOpt}" th:text="${levelOpt.displayValue}">
               </option>
             </select>

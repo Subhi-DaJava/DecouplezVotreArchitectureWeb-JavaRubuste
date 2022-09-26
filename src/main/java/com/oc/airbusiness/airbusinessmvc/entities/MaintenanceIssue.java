@@ -19,7 +19,9 @@ public class MaintenanceIssue {
 
     @NotBlank(message = "Details are mandatory")
     private String details;
+    //@Enumerated(EnumType.STRING)
     private SubSystem subSystem;
+    //@Enumerated(EnumType.STRING)
     private Level level;
 
     public MaintenanceIssue() {
