@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 @Entity
 public class MaintenanceIssue {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private long id;
     @NotBlank(message = "Entry Date is mandatory")
@@ -23,17 +23,6 @@ public class MaintenanceIssue {
     private SubSystem subSystem;
     //@Enumerated(EnumType.STRING)
     private Level level;
-
-    public MaintenanceIssue() {
-    }
-
-    public MaintenanceIssue(String entered, String fixed, String details, SubSystem subSystem, Level level) {
-        this.entered = entered;
-        this.fixed = fixed;
-        this.details = details;
-        this.subSystem = subSystem;
-        this.level = level;
-    }
 
     public long getId() {
         return id;

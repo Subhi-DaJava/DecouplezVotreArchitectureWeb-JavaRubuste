@@ -22,7 +22,7 @@ public class ReservationController {
         this.reservationRepository = reservationRepository;
     }
     @GetMapping("/new-trip")
-    public String showNewTripForm(Reservation user) {
+    public String showNewTripForm(Reservation reservation) {
         return "reservation/add-reservation";
     }
     @PostMapping("/reservation/add")

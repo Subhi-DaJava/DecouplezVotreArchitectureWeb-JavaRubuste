@@ -73,9 +73,15 @@ public class ClientController {
         return "client/clients";
     }
 
-    @RequestMapping("/clients/owe")
-    public String clientsOwe(Model model) {
-        model.addAttribute("clients", clientRepository.findByOutstandingBalanceGreaterThan(0.0));
+    @RequestMapping("/clients/owe") // Il s’agit de la connexion entre la page d’affichage (vue) et le contrôleur.
+    public String clientsOwe(Model model) { //Elle dit que, lorsque l’application décide d’afficher la page /clients/owe, la fonction clientOwe() est appelée. Le choix d’afficher cette page est décidé par la référence qui y est faite dans clients.html .
+        model.addAttribute("clients", clientRepository.findByOutstandingBalanceGreaterThan(0.0)); // Il s’agit de la connexion entre le contrôleur et la couche de données.
+        // Elle dit de trouver le modèle de données du client, puis d’ajouter toutes les données client qui correspondent à la requête du repository.
+        return "client/clients"; // Une autre connexion entre le contrôleur et la vue. Celle-ci dit à Spring Boot quelle page utiliser pour afficher les données obtenues à la ligne précédente.
+    }
+    @RequestMapping("/clients/owe-lots")
+    public String clientsOweLots(Model model) {
+        model.addAttribute("clients", clientRepository.findByOutstandingBalanceGreaterThan(150.0));
         return "client/clients";
     }
 }

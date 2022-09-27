@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Entity
 public class Pilot {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotBlank(message = "First Name is mandatory")
@@ -23,21 +23,6 @@ public class Pilot {
     private String aircraftRating; // Class de l'avion
     private String arrivalAirport; // Aéroport d'arrivée
     private String departureAirport; // Aéroport de départ
-
-    public Pilot() {
-    }
-
-    public Pilot(String firstName, String lastName, String address, String telephone, String aircraftRating, String arrivalAirport, String departureAirport, LocalDate licencesExpiration, String licenceNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.telephone = telephone;
-        this.aircraftRating = aircraftRating;
-        this.arrivalAirport = arrivalAirport;
-        this.departureAirport = departureAirport;
-        this.licencesExpiration = licencesExpiration;
-        this.licenceNumber = licenceNumber;
-    }
 
     private LocalDate licencesExpiration; // Date d'expiration du permis de vol
     private String licenceNumber; // Numéro du permis de vol

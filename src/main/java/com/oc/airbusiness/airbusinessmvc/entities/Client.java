@@ -16,7 +16,7 @@ import javax.validation.constraints.NotBlank;
 @Entity // Added Data Storage Annotation
 public class Client {
     @Id // Added id for the primary key
-    @GeneratedValue(strategy = GenerationType.AUTO) // Auto generate id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto generate id
     private long id;
 
     @NotBlank(message = "First Name is mandatory")
@@ -27,17 +27,6 @@ public class Client {
     private String address;
     private String telephone;
     private double outstandingBalance;
-
-    public Client() {
-    }
-
-    public Client(String firstName, String lastName, String address, String telephone, double outstandingBalance) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.telephone = telephone;
-        this.outstandingBalance = outstandingBalance;
-    }
 
     public long getId() {
         return id;
